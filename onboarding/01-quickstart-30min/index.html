@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="SQLI — Équipe Architecture">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Vue 360° (30 min) - Aquadvanced WaterNetworks — Documentation 360°</title>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Vue 360\u00b0 (30 min)";
+    var mkdocs_page_input_path = "onboarding/01-quickstart-30min.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Aquadvanced WaterNetworks — Documentation 360°</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">🏠 Accueil</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📦 Produit & Métier</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/domaines/">Domaines fonctionnels</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/cas-usage/">Cas d'usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/regles-gestion/">Règles de gestion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/faq-metier/">FAQ Métier</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏗️ Architecture</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/">Vue globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/global/">Architecture globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modules/">Modules techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/apis/">APIs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modele-donnees/">Modèle de données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/integrations/">Intégrations SI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/securite/">Sécurité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/environnements/">Environnements</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">⚙️ Domaines</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/hydraulique/">Hydraulique & Simulateur</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/detection-fuites/">Détection & Corrélation fuites</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/capteurs-iot/">Capteurs & IoT</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/iwa-water-balance/">IWA Water Balance</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/evenements-alertes/">Événements & Alertes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/reporting/">Reporting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/connecteurs/">Connecteurs & Données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/cartographie/">Cartographie & SIG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../domaines/configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🚀 Onboarding</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Vue 360° (30 min)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#etape-1-quest-ce-quaqwn-10-min">Étape 1 — Qu'est-ce qu'AQWN ? (10 min)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#etape-2-les-12-domaines-10-min">Étape 2 — Les 12 domaines (10 min)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#domaines-core-cur-metier">Domaines Core (Cœur métier)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#domaines-operations">Domaines Opérations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#domaines-technique">Domaines Technique</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#etape-3-les-5-concepts-cles-10-min">Étape 3 — Les 5 concepts clés (10 min)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-dma-district-metered-area">1. DMA (District Metered Area)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-epanet-moteur-hydraulique">2. EPANET (Moteur hydraulique)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-data-correlator">3. Data Correlator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-lli-localisation-de-fuite-par-indice">4. LLI (Localisation de Fuite par Indice)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-iwa-water-balance">5. IWA Water Balance</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#criteres-de-validation">Critères de validation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#voir-aussi">Voir aussi</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../02-standard-2h/">Onboarding standard (2h)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../03-deepdive-2days/">Deep dive (2 jours)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Par rôle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../by-role/dev/">Développeur</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../by-role/po/">PO / BA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../by-role/qa/">QA / Test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../by-role/run/">Run / Ops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../by-role/data/">Data / BI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../by-role/architecte/">Architecte</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🗺️ R-Map</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../rmap/">Carte interactive</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📖 Glossaire</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/">Accueil glossaire</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/metier/">Termes métier</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/tech/">Termes techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/acronymes/">Acronymes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🔧 Run & Exploitation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/runbooks/">Runbooks</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/monitoring/">Monitoring</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">✅ Qualité & Delivery</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/tests/">Stratégie tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/adr/">ADR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/standards/">Standards</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏛️ Gouvernance</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/raci/">RACI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/roadmap/">Roadmap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/changelog/">Changelog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../incoherences/">⚠️ Incohérences</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../inventory/">📋 Inventaire</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../open-questions/">🔓 Questions ouvertes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Aquadvanced WaterNetworks — Documentation 360°</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>🚀 Onboarding &raquo;</li>
+        
+      
+    
+    <li>Vue 360° (30 min)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="vue-360-en-30-minutes">Vue 360° en 30 minutes<a class="headerlink" href="#vue-360-en-30-minutes" title="Permanent link">&para;</a></h1>
+<p><strong>Objectif</strong> : À la fin de cette lecture (30 min), vous saurez expliquer AQWN, ses domaines et son intérêt métier.</p>
+<hr />
+<h2 id="etape-1-quest-ce-quaqwn-10-min">Étape 1 — Qu'est-ce qu'AQWN ? (10 min)<a class="headerlink" href="#etape-1-quest-ce-quaqwn-10-min" title="Permanent link">&para;</a></h2>
+<p><strong>Aquadvanced WaterNetworks</strong> est la plateforme <strong>SUEZ</strong> pour la <strong>gestion intelligente des réseaux d'eau potable</strong>.</p>
+<p>Elle permet de :
+- <strong>Surveiller</strong> le réseau (pression, débit, qualité)
+- <strong>Détecter</strong> les fuites rapidement
+- <strong>Localiser</strong> les fuites avec précision
+- <strong>Analyser</strong> les pertes d'eau
+- <strong>Rapporter</strong> les performances</p>
+<p><strong>Cas d'usage principal</strong> : Un opérateur voit une <strong>fuite suspecte</strong> détectée. AQWN :
+1. Détecte baisse de pression anormale
+2. Corrèle avec données acoustiques
+3. Localise zone fuite
+4. Alerte opérateur
+5. Propose secteur à fermer pour isoler
+6. Permet suivi réparation</p>
+<p><strong>Valeur</strong> : <strong>-15% des pertes d'eau</strong>, détection en <strong>heures</strong> (vs semaines).</p>
+<hr />
+<h2 id="etape-2-les-12-domaines-10-min">Étape 2 — Les 12 domaines (10 min)<a class="headerlink" href="#etape-2-les-12-domaines-10-min" title="Permanent link">&para;</a></h2>
+<p>AQWN couvre 12 domaines :</p>
+<h3 id="domaines-core-cur-metier">Domaines Core (Cœur métier)<a class="headerlink" href="#domaines-core-cur-metier" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Hydraulique &amp; Simulateur</strong> : Modélisation EPANET du réseau</li>
+<li><strong>Détection fuites</strong> : Identification données + corrélation</li>
+<li><strong>Capteurs &amp; IoT</strong> : Collecte pression, débit, acoustique</li>
+<li><strong>Qualité eau</strong> : Monitoring chlore, turbidité, pH</li>
+<li><strong>IWA Water Balance</strong> : Bilan des pertes (🔴 CRITIQUE — 48% seulement)</li>
+</ol>
+<h3 id="domaines-operations">Domaines Opérations<a class="headerlink" href="#domaines-operations" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Événements &amp; Alertes</strong> : Système SEF, réaction automatique</li>
+<li><strong>Reporting</strong> : KPIs, rapports, tableaux de bord</li>
+<li><strong>Fuites après compteurs</strong> : Détection chez clients</li>
+</ol>
+<h3 id="domaines-technique">Domaines Technique<a class="headerlink" href="#domaines-technique" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Connecteurs &amp; Données</strong> : Intégrations SI, PLTF</li>
+<li><strong>Cartographie &amp; SIG</strong> : Affichage OpenLayers</li>
+<li><strong>Configuration</strong> : Entités, droits, paramètres (migration WPF→HTML en cours)</li>
+<li><strong>Electricity Module</strong> : Efficacité énergétique</li>
+</ol>
+<hr />
+<h2 id="etape-3-les-5-concepts-cles-10-min">Étape 3 — Les 5 concepts clés (10 min)<a class="headerlink" href="#etape-3-les-5-concepts-cles-10-min" title="Permanent link">&para;</a></h2>
+<h3 id="1-dma-district-metered-area">1. DMA (District Metered Area)<a class="headerlink" href="#1-dma-district-metered-area" title="Permanent link">&para;</a></h3>
+<p>Zone de réseau avec entrée unique / point de mesure. Permet <strong>segmentation</strong> et <strong>analyse</strong> par zone.</p>
+<h3 id="2-epanet-moteur-hydraulique">2. EPANET (Moteur hydraulique)<a class="headerlink" href="#2-epanet-moteur-hydraulique" title="Permanent link">&para;</a></h3>
+<p>Simulation hydraulique qui calcule <strong>pressions</strong> et <strong>débits</strong> en chaque point. Permet <strong>validation</strong> des mesures réelles.</p>
+<h3 id="3-data-correlator">3. Data Correlator<a class="headerlink" href="#3-data-correlator" title="Permanent link">&para;</a></h3>
+<p>Analyse statistique qui détecte changements <strong>abrupts</strong> et les <strong>corrige</strong>. Réduit faux positifs.</p>
+<h3 id="4-lli-localisation-de-fuite-par-indice">4. LLI (Localisation de Fuite par Indice)<a class="headerlink" href="#4-lli-localisation-de-fuite-par-indice" title="Permanent link">&para;</a></h3>
+<p>Triangulation acoustique (3+ loggers) qui pinpoint fuite à ±1 mètre. Valeur énorme pour opérations.</p>
+<h3 id="5-iwa-water-balance">5. IWA Water Balance<a class="headerlink" href="#5-iwa-water-balance" title="Permanent link">&para;</a></h3>
+<p>Framework standard pour analyser <strong>où va l'eau</strong>. Calcule taux pertes (NRW), indicateurs A/B/C/D. Bloqué à 48% — critique.</p>
+<hr />
+<h2 id="criteres-de-validation">Critères de validation<a class="headerlink" href="#criteres-de-validation" title="Permanent link">&para;</a></h2>
+<p>Pouvez-vous répondre à :</p>
+<ul>
+<li>✅ Qu'est-ce qu'AQWN et quel est son objectif principal ?</li>
+<li>✅ Nommez 3 des 12 domaines</li>
+<li>✅ Pourquoi EPANET est important ?</li>
+<li>✅ Qu'est-ce que le Data Correlator et pourquoi c'est utile ?</li>
+<li>✅ C'est quoi un DMA ?</li>
+</ul>
+<p>Si oui → <strong>Bravo !</strong> Vous avez la vue 360°. Prochaine étape : <a href="../02-standard-2h/">Onboarding 2h</a></p>
+<hr />
+<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../..">Accueil principal</a></li>
+<li><a href="../02-standard-2h/">Onboarding 2h</a></li>
+<li><a href="../../glossaire/metier/">Glossaire métier</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../02-standard-2h/" class="btn btn-neutral float-right" title="Onboarding standard (2h)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="Vue d'ensemble"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../02-standard-2h/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
