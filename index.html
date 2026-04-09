@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portail de connaissance complet pour AQWN — SUEZ Digital Solutions">
+  <meta name="author" content="SQLI — Équipe Architecture">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Aquadvanced WaterNetworks — Documentation 360°</title>
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\ud83c\udfe0 Accueil";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Aquadvanced WaterNetworks — Documentation 360°</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">🏠 Accueil</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#quest-ce-quaquadvanced-waternetworks">Qu'est-ce qu'Aquadvanced WaterNetworks ?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a-qui-sadresse-ce-portail">À qui s'adresse ce portail ?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parcours-de-decouverte">Parcours de découverte</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#metriques-produit-backlog-azure-devops">Métriques produit (Backlog Azure DevOps)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#12-domaines-fonctionnels">12 Domaines fonctionnels</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#risques-critiques-actuels">Risques critiques actuels</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#technologie-principale">Technologie principale</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#navigation-rapide">Navigation rapide</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sources-de-verite">Sources de vérité</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📦 Produit & Métier</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="produit/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="produit/domaines/">Domaines fonctionnels</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="produit/cas-usage/">Cas d'usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="produit/regles-gestion/">Règles de gestion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="produit/faq-metier/">FAQ Métier</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏗️ Architecture</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/">Vue globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/global/">Architecture globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/modules/">Modules techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/apis/">APIs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/modele-donnees/">Modèle de données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/integrations/">Intégrations SI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/securite/">Sécurité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="architecture/environnements/">Environnements</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">⚙️ Domaines</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/hydraulique/">Hydraulique & Simulateur</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/detection-fuites/">Détection & Corrélation fuites</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/capteurs-iot/">Capteurs & IoT</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/iwa-water-balance/">IWA Water Balance</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/evenements-alertes/">Événements & Alertes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/reporting/">Reporting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/connecteurs/">Connecteurs & Données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/cartographie/">Cartographie & SIG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="domaines/configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🚀 Onboarding</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="onboarding/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="onboarding/01-quickstart-30min/">Vue 360° (30 min)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="onboarding/02-standard-2h/">Onboarding standard (2h)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="onboarding/03-deepdive-2days/">Deep dive (2 jours)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Par rôle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="onboarding/by-role/dev/">Développeur</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="onboarding/by-role/po/">PO / BA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="onboarding/by-role/qa/">QA / Test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="onboarding/by-role/run/">Run / Ops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="onboarding/by-role/data/">Data / BI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="onboarding/by-role/architecte/">Architecte</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🗺️ R-Map</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="rmap/">Carte interactive</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📖 Glossaire</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="glossaire/">Accueil glossaire</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="glossaire/metier/">Termes métier</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="glossaire/tech/">Termes techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="glossaire/acronymes/">Acronymes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🔧 Run & Exploitation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="run/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="run/runbooks/">Runbooks</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="run/monitoring/">Monitoring</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">✅ Qualité & Delivery</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="qualite/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="qualite/tests/">Stratégie tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="qualite/adr/">ADR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="qualite/standards/">Standards</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏛️ Gouvernance</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="gouvernance/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="gouvernance/raci/">RACI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="gouvernance/roadmap/">Roadmap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="gouvernance/changelog/">Changelog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="incoherences/">⚠️ Incohérences</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="inventory/">📋 Inventaire</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="open-questions/">🔓 Questions ouvertes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Aquadvanced WaterNetworks — Documentation 360°</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>🏠 Accueil</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="aquadvanced-waternetworks-portail-de-documentation-360">Aquadvanced WaterNetworks — Portail de Documentation 360°<a class="headerlink" href="#aquadvanced-waternetworks-portail-de-documentation-360" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">À retenir</p>
+<p>Aquadvanced WaterNetworks (AQWN) est la solution de gestion intelligente des réseaux d'eau potable de SUEZ Digital Solutions. Ce portail est votre point d'entrée unique pour comprendre, opérer et faire évoluer le produit.</p>
+</div>
+<h2 id="quest-ce-quaquadvanced-waternetworks">Qu'est-ce qu'Aquadvanced WaterNetworks ?<a class="headerlink" href="#quest-ce-quaquadvanced-waternetworks" title="Permanent link">&para;</a></h2>
+<p><strong>Aquadvanced WaterNetworks</strong> est une plateforme intégrée pour la <strong>gestion des réseaux d'eau potable</strong>, combinant :</p>
+<ul>
+<li><strong>Surveillance hydraulique en temps réel</strong> : Intégration du moteur EPANET pour la modélisation hydraulique et la simulation de scénarios</li>
+<li><strong>Détection et localisation de fuites</strong> : Corrélation automatique des données acoustiques pour identifier et localiser les fuites dans le réseau</li>
+<li><strong>Gestion des capteurs IoT</strong> : Collection et analyse des données provenant de capteurs de pression, débits, qualité de l'eau</li>
+<li><strong>Bilan hydraulique IWA</strong> : Calcul des indicateurs de performance selon le standard International Water Association</li>
+<li><strong>Gestion d'événements et alertes</strong> : Système SEF (Sector Event Flow) pour la détection automatique et la gestion des secteurs affectés</li>
+<li><strong>Reporting et tableaux de bord</strong> : KPIs, rapports de performance, visualisation des données</li>
+<li><strong>Cartographie interactive</strong> : Représentation géospatiale du réseau avec OpenLayers</li>
+</ul>
+<p>AQWN s'adresse aux <strong>utility managers</strong>, <strong>opérateurs eau</strong>, <strong>ingénieurs eau</strong> et <strong>décideurs</strong> des services d'eau.</p>
+<h2 id="a-qui-sadresse-ce-portail">À qui s'adresse ce portail ?<a class="headerlink" href="#a-qui-sadresse-ce-portail" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Perspective</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Développeurs</strong></td>
+<td>Architecture, APIs, intégrations techniques, stack (WPF→HTML, EPANET, OpenLayers)</td>
+</tr>
+<tr>
+<td><strong>Product Owners / BA</strong></td>
+<td>Domaines fonctionnels, cas d'usage, règles métier, roadmap</td>
+</tr>
+<tr>
+<td><strong>QA / Testeurs</strong></td>
+<td>Stratégie de tests, critères d'acceptance, cas de test par domaine</td>
+</tr>
+<tr>
+<td><strong>Ops / Run</strong></td>
+<td>Runbooks, monitoring, configurations, troubleshooting</td>
+</tr>
+<tr>
+<td><strong>Data / BI</strong></td>
+<td>Modèle de données, connecteurs, intégrations SI, séries temporelles</td>
+</tr>
+<tr>
+<td><strong>Architectes</strong></td>
+<td>Vision globale, décisions architecturales, évolutions techniques</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-de-decouverte">Parcours de découverte<a class="headerlink" href="#parcours-de-decouverte" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>⏱️ Temps</th>
+<th>Objectif</th>
+<th>Lien</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>30 min</strong></td>
+<td>Vue 360° — comprendre l'essentiel</td>
+<td><a href="onboarding/01-quickstart-30min/">Quickstart</a></td>
+</tr>
+<tr>
+<td><strong>2h</strong></td>
+<td>Onboarding standard — concepts clés et domaines</td>
+<td><a href="onboarding/02-standard-2h/">Standard</a></td>
+</tr>
+<tr>
+<td><strong>2 jours</strong></td>
+<td>Deep dive — exploration technique complète</td>
+<td><a href="onboarding/03-deepdive-2days/">Deep dive</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="metriques-produit-backlog-azure-devops">Métriques produit (Backlog Azure DevOps)<a class="headerlink" href="#metriques-produit-backlog-azure-devops" title="Permanent link">&para;</a></h2>
+<div class="domain-stats">
+
+| Indicateur | Valeur | Tendance |
+|-----------|--------|----------|
+| **Items total** | 6 340 | Production active |
+| **User Stories** | 1 347 | Roadmap Q1-Q4 2024 |
+| **Bugs** | 4 993 | Maintenance continue |
+| **Sprints actifs** | S35 → S108+ | Livraison bi-hebdomadaire |
+| **Taux résolution global** | ~81% | ✅ 12 domaines en production |
+
+</div>
+
+<h2 id="12-domaines-fonctionnels">12 Domaines fonctionnels<a class="headerlink" href="#12-domaines-fonctionnels" title="Permanent link">&para;</a></h2>
+<div class="domain-stats">
+
+| Domaine | Items | Complétion | État |
+|---------|-------|-----------|------|
+| **Hydraulique & Simulateur** | 657 | 76% | Production |
+| **Détection & Corrélation fuites** | 714 | 86% | Production |
+| **Capteurs & IoT** | 743 | 88% | Production |
+| **Qualité de l'eau** | 433 | 87% | Production |
+| **Événements & Alertes** | 1 086 | 95% | Stable |
+| **IWA Water Balance** | 106 | 48% | **⚠️ CRITIQUE** |
+| **Reporting & Tableaux de bord** | 504 | 83% | Production |
+| **Gestion des données & Connecteurs** | 1 345 | 81% | Évolution en cours |
+| **Cartographie & SIG** | 609 | 81% | Production (upgrade OpenLayers v10.3) |
+| **Configuration & Administration** | 1 196 | 90% | Migration WPF→HTML |
+| **Fuites après compteurs** | 103 | 81% | Production |
+| **Electricity Module** | 79 | 89% | Production |
+
+</div>
+
+<h2 id="risques-critiques-actuels">Risques critiques actuels<a class="headerlink" href="#risques-critiques-actuels" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">IWA Water Balance — BLOQUÉ</p>
+<p><strong>Complétion : 48% (la plus basse)</strong></p>
+<ul>
+<li>55 User Stories ouvertes</li>
+<li>Spécification incomplète (v4)</li>
+<li>Impact : Impossibilité de calculer les indicateurs IWA A/B/C/D de façon fiable</li>
+<li><a href="domaines/iwa-water-balance/">Voir page dédiée →</a></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">CWE-79 XSS — On Hold</p>
+<p>Vulnérabilité de sécurité détectée (injection XSS). Pas de plan de remédiation clair.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Migration WPF → HTML</p>
+<p>Configurateur legacy WPF en maintenance parallèle avec prototype HTML/Angular. Double charge de travail.</p>
+</div>
+<h2 id="technologie-principale">Technologie principale<a class="headerlink" href="#technologie-principale" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Moteur hydraulique</strong> : EPANET (remplace Ganessa) — simulation hydraulique complète</li>
+<li><strong>Cartographie</strong> : OpenLayers 10.3 — couches SIG, visualisation réseau temps réel</li>
+<li><strong>UI</strong> : WPF (héritage) + migration en cours vers HTML/Angular</li>
+<li><strong>Connecteurs</strong> : PLTF (remplacement progressif des connecteurs WN-spécifiques)</li>
+<li><strong>Séries temporelles</strong> : POC TypeScript referenced architecture</li>
+<li><strong>AG Grid</strong> : Tableaux de données interactifs</li>
+</ul>
+<h2 id="navigation-rapide">Navigation rapide<a class="headerlink" href="#navigation-rapide" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Je veux comprendre rapidement</strong> → <a href="onboarding/01-quickstart-30min/">Vue 360° en 30 min</a></li>
+<li><strong>Je veux explorer par domaine</strong> → <a href="produit/domaines/">Domaines fonctionnels</a></li>
+<li><strong>Je veux voir la roadmap</strong> → <a href="gouvernance/roadmap/">Gouvernance &amp; Roadmap</a></li>
+<li><strong>J'ai besoin du glossaire</strong> → <a href="glossaire/metier/">Termes métier &amp; acronymes</a></li>
+<li><strong>Je cherche un concept technique</strong> → <a href="glossaire/tech/">Glossaire technique</a></li>
+<li><strong>Je dois opérer AQWN</strong> → <a href="run/">Run &amp; Exploitation</a></li>
+<li><strong>Je dois configurer une nouvelle instance</strong> → <a href="domaines/configuration/">Configuration &amp; Admin</a></li>
+</ul>
+<h2 id="sources-de-verite">Sources de vérité<a class="headerlink" href="#sources-de-verite" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>workitems.json</code> — Export backlog Azure DevOps (6 340 items)</li>
+<li><code>/sharepoint_docs/</code> — 321+ documents de spécifications (2014-2024)</li>
+<li><code>Specifications ongoing/</code> — Roadmaps et évolutions actuelles</li>
+<li><code>01-Requirements/</code> — Fiches de besoins détaillées par domaine</li>
+</ul>
+<hr />
+<p><strong>Dernière mise à jour</strong> : 2026-04-09 | <strong>Version portail</strong> : 1.0.0</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="produit/" class="btn btn-neutral float-right" title="Vue d'ensemble">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="produit/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2026-04-09 16:16:01.778496+00:00
+-->

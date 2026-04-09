@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="SQLI — Équipe Architecture">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>IWA Water Balance - Aquadvanced WaterNetworks — Documentation 360°</title>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "IWA Water Balance";
+    var mkdocs_page_input_path = "domaines/iwa-water-balance.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Aquadvanced WaterNetworks — Documentation 360°</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">🏠 Accueil</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📦 Produit & Métier</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/domaines/">Domaines fonctionnels</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/cas-usage/">Cas d'usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/regles-gestion/">Règles de gestion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/faq-metier/">FAQ Métier</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏗️ Architecture</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/">Vue globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/global/">Architecture globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modules/">Modules techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/apis/">APIs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modele-donnees/">Modèle de données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/integrations/">Intégrations SI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/securite/">Sécurité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/environnements/">Environnements</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">⚙️ Domaines</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../hydraulique/">Hydraulique & Simulateur</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../detection-fuites/">Détection & Corrélation fuites</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../capteurs-iot/">Capteurs & IoT</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">IWA Water Balance</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#framework-iwa">Framework IWA</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#quest-ce-que-le-bilan-iwa">Qu'est-ce que le bilan IWA ?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#indicateurs-iwa-a-b-c-d">Indicateurs IWA (A, B, C, D)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#integration-aqwn">Intégration AQWN</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#flux-de-calcul-du-bilan">Flux de calcul du bilan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#defis-dimplementation">Défis d'implémentation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-administration">Configuration &amp; Administration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parametres-du-bilan">Paramètres du bilan</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#backlog-blocages">Backlog &amp; Blocages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#questions-ouvertes-critique">Questions ouvertes (CRITIQUE)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sources">Sources</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evenements-alertes/">Événements & Alertes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../reporting/">Reporting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../connecteurs/">Connecteurs & Données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cartographie/">Cartographie & SIG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🚀 Onboarding</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/01-quickstart-30min/">Vue 360° (30 min)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/02-standard-2h/">Onboarding standard (2h)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/03-deepdive-2days/">Deep dive (2 jours)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Par rôle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/dev/">Développeur</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/po/">PO / BA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/qa/">QA / Test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/run/">Run / Ops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/data/">Data / BI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/architecte/">Architecte</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🗺️ R-Map</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../rmap/">Carte interactive</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📖 Glossaire</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/">Accueil glossaire</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/metier/">Termes métier</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/tech/">Termes techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/acronymes/">Acronymes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🔧 Run & Exploitation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/runbooks/">Runbooks</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/monitoring/">Monitoring</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">✅ Qualité & Delivery</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/tests/">Stratégie tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/adr/">ADR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/standards/">Standards</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏛️ Gouvernance</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/raci/">RACI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/roadmap/">Roadmap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/changelog/">Changelog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../incoherences/">⚠️ Incohérences</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../inventory/">📋 Inventaire</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../open-questions/">🔓 Questions ouvertes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Aquadvanced WaterNetworks — Documentation 360°</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>⚙️ Domaines &raquo;</li>
+        
+      
+    
+    <li>IWA Water Balance</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="iwa-water-balance">IWA Water Balance<a class="headerlink" href="#iwa-water-balance" title="Permanent link">&para;</a></h1>
+<div class="admonition danger">
+<p class="admonition-title">Attention — Domaine CRITIQUE</p>
+<p>Ce domaine présente <strong>48% de complétion</strong>, le taux le plus faible de tous les domaines AQWN.</p>
+<ul>
+<li>106 items backlog total</li>
+<li>55+ User Stories ouvertes</li>
+<li>Spécification incomplète (v4)</li>
+<li><strong>Impact</strong> : Impossibilité de calculer fiablement les indicateurs de perte d'eau</li>
+<li><strong>Risque</strong> : Blocage de tenders clients demandant le bilan IWA</li>
+</ul>
+</div>
+<p><strong>Prérequis</strong> : <a href="../../glossaire/metier/">Glossaire IWA</a> | <a href="../hydraulique/">Hydraulique</a></p>
+<hr />
+<h2 id="framework-iwa">Framework IWA<a class="headerlink" href="#framework-iwa" title="Permanent link">&para;</a></h2>
+<h3 id="quest-ce-que-le-bilan-iwa">Qu'est-ce que le bilan IWA ?<a class="headerlink" href="#quest-ce-que-le-bilan-iwa" title="Permanent link">&para;</a></h3>
+<p>L'<strong>International Water Association (IWA)</strong> définit un framework standard pour analyser <strong>où va l'eau</strong> dans un réseau d'eau potable.</p>
+<p>Le bilan sépare :</p>
+<pre><code>VOLUME ENTRANT
+    │
+    ├─► CONSOMMATION FACTURISÉE (Billed Metered)
+    │   ├─► Domicilaire facturisée
+    │   └─► Non-domicilaire facturisée
+    │
+    ├─► CONSOMMATION NON FACTURISÉE (Unbilled Metered)
+    │   ├─► Domicilaire (gratuité, usage public)
+    │   └─► Non-domicilaire (gratuité)
+    │
+    └─► NON REVENUE WATER (NRW) / PERTES
+        ├─► PERTES APPARENTES (Apparent Losses)
+        │   ├─► Erreurs de mesure (compteurs)
+        │   └─► Vols/usages non autorisés
+        │
+        └─► PERTES RÉELLES (Real Losses / Fuites)
+            ├─► Ruptures conduites
+            ├─► Fuites jonctions
+            ├─► Fuites branchements
+            └─► Débordements réservoirs
+</code></pre>
+<h3 id="indicateurs-iwa-a-b-c-d">Indicateurs IWA (A, B, C, D)<a class="headerlink" href="#indicateurs-iwa-a-b-c-d" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Formule</th>
+<th>Interprétation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>% NRW / Volume entrant</td>
+<td>Taux global de perte — % du volume perdu</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>NRW / Longueur réseau / Jour</td>
+<td>Débit spécifique de fuite par km/jour — détecte surcharges</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>% Pertes réelles / % Consommation facturisée</td>
+<td>Ratio perte réelle sur consommation — efficacité relative</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Nbr fuites / Nbr raccordements / An</td>
+<td>Intensité des défaillances — indice de détérioralité</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Benchmark</strong> :
+- Pays développés : A = 10-15% (excellent)
+- Pays en développement : A = 30-50% (mauvais)
+- France (SUEZ) : A = 15-20% (bon)</p>
+<h2 id="integration-aqwn">Intégration AQWN<a class="headerlink" href="#integration-aqwn" title="Permanent link">&para;</a></h2>
+<h3 id="flux-de-calcul-du-bilan">Flux de calcul du bilan<a class="headerlink" href="#flux-de-calcul-du-bilan" title="Permanent link">&para;</a></h3>
+<pre><code>┌──────────────────────────────┐
+│ 1. Données d'entrée          │
+│ - Volumes compteurs          │
+│ - Volumes simulation EPANET   │
+│ - Pertes estimées (fuites)   │
+│ - Période (jour/mois/an)     │
+└────────────┬─────────────────┘
+             │
+┌────────────▼─────────────────┐
+│ 2. Calculs intermédiaires    │
+│ - Consommation facturisée    │
+│ - Consommation non facturisée│
+│ - Pertes réelles/apparentes  │
+│ - NRW total                  │
+└────────────┬─────────────────┘
+             │
+┌────────────▼─────────────────┐
+│ 3. Indicateurs IWA           │
+│ - A: % NRW                   │
+│ - B: NRW/km/jour             │
+│ - C: % Real / % Facturisé    │
+│ - D: Fuites/raccord/an       │
+└────────────┬─────────────────┘
+             │
+┌────────────▼─────────────────┐
+│ 4. Visualisation &amp; Rapports  │
+│ - Tableaux de synthèse       │
+│ - Graphiques tendance        │
+│ - Comparaisons périodes      │
+│ - Export certifié            │
+└──────────────────────────────┘
+</code></pre>
+<h3 id="defis-dimplementation">Défis d'implémentation<a class="headerlink" href="#defis-dimplementation" title="Permanent link">&para;</a></h3>
+<p>🔴 <strong>Pourquoi c'est bloqué ?</strong></p>
+<ol>
+<li><strong>Spécification incomplète</strong> : Comment calculer exactement les "pertes réelles" ?</li>
+<li>Différence mesure - consommation connue ?</li>
+<li>Simulation EPANET vs réalité ?</li>
+<li>
+<p>Extrapolation depuis détection de fuites ?</p>
+</li>
+<li>
+<p><strong>Données manquantes</strong> : Certains clients n'ont pas :</p>
+</li>
+<li>Compteurs à tous les nœuds</li>
+<li>Historique complet des fuites</li>
+<li>
+<p>Enregistrements de consommation détaillés</p>
+</li>
+<li>
+<p><strong>Validation des résultats</strong> : Comment savoir si les indicateurs sont corrects ?</p>
+</li>
+<li>Pas de benchmark interne</li>
+<li>Dépend fortement des données saisies</li>
+<li>
+<p>Erreurs de mesure masquent le bilan réel</p>
+</li>
+<li>
+<p><strong>Cas d'usage multiples non couverts</strong> :</p>
+</li>
+<li>Par DMA ? (zone)</li>
+<li>Par tronçon de réseau ?</li>
+<li>Comparaison inter-périodes ?</li>
+<li>Simulation prédictive ?</li>
+</ol>
+<h2 id="configuration-administration">Configuration &amp; Administration<a class="headerlink" href="#configuration-administration" title="Permanent link">&para;</a></h2>
+<h3 id="parametres-du-bilan">Paramètres du bilan<a class="headerlink" href="#parametres-du-bilan" title="Permanent link">&para;</a></h3>
+<pre><code>Configuration de la période de calcul :
+├─ Durée : Jour / Semaine / Mois / Trimestre / Année
+├─ Date de début / fin
+│
+Configuration des sources de données :
+├─ Source débit entrant (compteur ? simulation ?)
+├─ Mapping consommation facturisée (source externe ?)
+├─ Mapping pertes réelles (événements fuites ? algorithme ?)
+│
+Configuration d'export :
+├─ Format (Excel ? PDF ?)
+├─ Destinataire (rapports régulateurs ?)
+└─ Fréquence automatique (mensuel ?)
+</code></pre>
+<h2 id="backlog-blocages">Backlog &amp; Blocages<a class="headerlink" href="#backlog-blocages" title="Permanent link">&para;</a></h2>
+<div class="domain-stats">
+
+| Item | Status | Priorité | Bloqué par |
+|------|--------|----------|-----------|
+| Spécification complète v4 | ❌ Ouvert | 🔴 Critique | Clarification besoins clients |
+| Moteur de calcul IWA | ⏳ Partiel | 🔴 Critique | Spec v4 |
+| UI Rapport IWA | ❌ Ouvert | 🟡 Haute | Moteur |
+| Validation & Tests | ❌ Ouvert | 🟡 Haute | Moteur |
+| Documentation & Guides | ❌ Ouvert | 🟢 Normale | Tests |
+| Support export (Excel/PDF) | ❌ Ouvert | 🟢 Normale | UI Rapport |
+
+**Total** : 106 items | **En cours** : ~51 | **À faire** : ~55
+
+</div>
+
+<h2 id="questions-ouvertes-critique">Questions ouvertes (CRITIQUE)<a class="headerlink" href="#questions-ouvertes-critique" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">À clarifier avant de continuer</p>
+<ul>
+<li><strong>Comment calculer les pertes réelles</strong> si on n'a que des estimations ?</li>
+<li><strong>Quel niveau de granularité</strong> pour les indicateurs (global ? par DMA ? par tronçon) ?</li>
+<li><strong>Quels sont les clients prioritaires</strong> qui ont besoin du bilan IWA en 2024 ?</li>
+<li><strong>Existe-t-il des données de validation</strong> (bilans historiques) pour tester ?</li>
+<li><strong>Qui valide la conformité</strong> avec le standard IWA ?</li>
+</ul>
+</div>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>/01-Requirements/</code> — <strong>INCONNU</strong> (source manquante — TODO: Spec IWA Water Balance)</li>
+<li>Hydraulic models — EPANET integration</li>
+<li><code>Sujets RoadMap 2024.docx</code> — Mention mais pas de détails</li>
+<li><strong>Reference externe</strong> : IWA Water Balance — https://www.iwahq.org/</li>
+</ul>
+<hr />
+<p><strong>État du domaine</strong> : 🔴 CRITIQUE — Spec à compléter, moteur bloqué</p>
+<p><strong>Voir aussi</strong> : <a href="../hydraulique/">Hydraulique</a> | <a href="../reporting/">Reporting</a> | <a href="../detection-fuites/">Détection de fuites</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../evenements-alertes/" class="btn btn-neutral float-right" title="Événements & Alertes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../capteurs-iot/" class="btn btn-neutral" title="Capteurs & IoT"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../capteurs-iot/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../evenements-alertes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

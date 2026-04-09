@@ -1,0 +1,76 @@
+/* SQLI / AQWN branding */
+:root {
+  --sqli-dark: #0E0F2B;
+  --sqli-blue: #1F24E9;
+  --sqli-sky: #6DA5FF;
+  --sqli-light: #F0F4FF;
+}
+
+.rst-content .note {
+  border-left: 4px solid var(--sqli-blue);
+  background: #f8f9fa;
+}
+
+.rst-content .warning {
+  border-left: 4px solid #E9A21F;
+  background: #faf8f3;
+}
+
+.rst-content .danger {
+  border-left: 4px solid #E9291F;
+  background: #faf3f3;
+}
+
+.badge-critical {
+  display: inline-block;
+  background: #E9291F;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.badge-warning {
+  display: inline-block;
+  background: #E9A21F;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.badge-ok {
+  display: inline-block;
+  background: #1FE94D;
+  color: #0E0F2B;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.domain-stats {
+  background: var(--sqli-light);
+  padding: 12px;
+  border-radius: 6px;
+  margin: 12px 0;
+  border-left: 4px solid var(--sqli-blue);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: var(--sqli-light);
+  font-weight: bold;
+}

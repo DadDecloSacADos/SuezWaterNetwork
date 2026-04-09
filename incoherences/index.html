@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="SQLI — Équipe Architecture">
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>⚠️ Incohérences - Aquadvanced WaterNetworks — Documentation 360°</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u26a0\ufe0f Incoh\u00e9rences";
+    var mkdocs_page_input_path = "incoherences.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Aquadvanced WaterNetworks — Documentation 360°</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">🏠 Accueil</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📦 Produit & Métier</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../produit/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../produit/domaines/">Domaines fonctionnels</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../produit/cas-usage/">Cas d'usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../produit/regles-gestion/">Règles de gestion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../produit/faq-metier/">FAQ Métier</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏗️ Architecture</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/">Vue globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/global/">Architecture globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/modules/">Modules techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/apis/">APIs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/modele-donnees/">Modèle de données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/integrations/">Intégrations SI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/securite/">Sécurité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/environnements/">Environnements</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">⚙️ Domaines</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/hydraulique/">Hydraulique & Simulateur</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/detection-fuites/">Détection & Corrélation fuites</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/capteurs-iot/">Capteurs & IoT</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/iwa-water-balance/">IWA Water Balance</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/evenements-alertes/">Événements & Alertes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/reporting/">Reporting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/connecteurs/">Connecteurs & Données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/cartographie/">Cartographie & SIG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../domaines/configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🚀 Onboarding</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../onboarding/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../onboarding/01-quickstart-30min/">Vue 360° (30 min)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../onboarding/02-standard-2h/">Onboarding standard (2h)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../onboarding/03-deepdive-2days/">Deep dive (2 jours)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Par rôle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../onboarding/by-role/dev/">Développeur</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../onboarding/by-role/po/">PO / BA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../onboarding/by-role/qa/">QA / Test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../onboarding/by-role/run/">Run / Ops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../onboarding/by-role/data/">Data / BI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../onboarding/by-role/architecte/">Architecte</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🗺️ R-Map</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../rmap/">Carte interactive</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📖 Glossaire</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../glossaire/">Accueil glossaire</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../glossaire/metier/">Termes métier</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../glossaire/tech/">Termes techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../glossaire/acronymes/">Acronymes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🔧 Run & Exploitation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../run/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../run/runbooks/">Runbooks</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../run/monitoring/">Monitoring</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">✅ Qualité & Delivery</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../qualite/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../qualite/tests/">Stratégie tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../qualite/adr/">ADR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../qualite/standards/">Standards</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏛️ Gouvernance</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gouvernance/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../gouvernance/raci/">RACI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../gouvernance/roadmap/">Roadmap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../gouvernance/changelog/">Changelog</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">⚠️ Incohérences</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-ganessa-vs-epanet-double-reference">1. Ganessa vs EPANET — Double référence</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-wpf-configurateur-vs-html-prototype">2. WPF Configurateur vs HTML Prototype</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-iwa-water-balance-specification-incomplete">3. IWA Water Balance — Spécification incomplète</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-openlayers-version-specs-vs-backlog">4. OpenLayers version — Specs vs backlog</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-sef-vs-pltf-connectors-frontiere-floue">5. SEF vs PLTF Connectors — Frontière floue</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-cwe-79-xss-on-hold-sans-plan">6. CWE-79 XSS — On Hold sans plan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-donnees-manquantes-dans-specs">7. Données manquantes dans specs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resume-executif">Résumé exécutif</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../inventory/">📋 Inventaire</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../open-questions/">🔓 Questions ouvertes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Aquadvanced WaterNetworks — Documentation 360°</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>⚠️ Incohérences</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="incoherences-divergences-documentees">Incohérences &amp; Divergences documentées<a class="headerlink" href="#incoherences-divergences-documentees" title="Permanent link">&para;</a></h1>
+<p>Problèmes de cohérence entre spécifications, code et backlog identifiés.</p>
+<hr />
+<h2 id="1-ganessa-vs-epanet-double-reference">1. Ganessa vs EPANET — Double référence<a class="headerlink" href="#1-ganessa-vs-epanet-double-reference" title="Permanent link">&para;</a></h2>
+<p><strong>Problème</strong> :
+- Docs récentes (2020+) favorisent EPANET
+- Docs anciennes (2015-2018) référencent Ganessa sans noter migration
+- Certains clients encore en Ganessa</p>
+<p><strong>Impact</strong> : Confusion sur "quel moteur utiliser"</p>
+<p><strong>À faire</strong> :
+- [ ] Audit complet : qui est encore en Ganessa ?
+- [ ] Timeline migration claire
+- [ ] Migration guide pour clients</p>
+<hr />
+<h2 id="2-wpf-configurateur-vs-html-prototype">2. WPF Configurateur vs HTML Prototype<a class="headerlink" href="#2-wpf-configurateur-vs-html-prototype" title="Permanent link">&para;</a></h2>
+<p><strong>Problème</strong> :
+- WPF = legacy, maintenance passive
+- HTML/Angular = prototype, viabilité incertaine
+- <strong>Double charge de travail</strong> pendant transition</p>
+<p><strong>Impact</strong> : Roadmap surchargée, délais rallongés</p>
+<p><strong>À faire</strong> :
+- [ ] Décision : HTML viable ? Quand EOL WPF ?
+- [ ] Plan consolidation UI
+- [ ] Priorité features : WPF ou HTML ?</p>
+<hr />
+<h2 id="3-iwa-water-balance-specification-incomplete">3. IWA Water Balance — Spécification incomplète<a class="headerlink" href="#3-iwa-water-balance-specification-incomplete" title="Permanent link">&para;</a></h2>
+<p><strong>Problème</strong> :
+- 106 items, <strong>48% complétion</strong> (taux le plus bas)
+- 55+ US ouvertes
+- Spec v4 non finalisée
+- Calcul pertes réelles pas clairement défini</p>
+<p><strong>Impact</strong> : 🔴 <strong>CRITIQUE</strong> — Blocage tenders clients demandant bilan IWA</p>
+<p><strong>À faire</strong> :
+- [ ] Écrire spec v4 COMPLÈTE
+- [ ] Identifier source "pertes réelles" (simulation ? fuites détectées ?)
+- [ ] Validation avec expert métier + client pilote
+- [ ] Plan accélération Q2 2024</p>
+<hr />
+<h2 id="4-openlayers-version-specs-vs-backlog">4. OpenLayers version — Specs vs backlog<a class="headerlink" href="#4-openlayers-version-specs-vs-backlog" title="Permanent link">&para;</a></h2>
+<p><strong>Problème</strong> :
+- Quelques specs mentionnent "v8.x"
+- Backlog contains "upgrade v10.3" (2024)
+- Specs anciennes pas à jour sur version</p>
+<p><strong>Impact</strong> : Confusion sur capacités réelles (performance, features)</p>
+<p><strong>À faire</strong> :
+- [ ] Update documentation avec v10.3 features
+- [ ] Communiquer breaking changes clients</p>
+<hr />
+<h2 id="5-sef-vs-pltf-connectors-frontiere-floue">5. SEF vs PLTF Connectors — Frontière floue<a class="headerlink" href="#5-sef-vs-pltf-connectors-frontiere-floue" title="Permanent link">&para;</a></h2>
+<p><strong>Problème</strong> :
+- Docs 2015 : SEF = connecteur propriétaire événements
+- Roadmap 2024 : PLTF remplace connecteurs WN-spécifiques
+- Pas clair : SEF est-il "SEF Connector PLTF" ou separate ?</p>
+<p><strong>Impact</strong> : Implémentation intégrations confuse, dépendances mal définies</p>
+<p><strong>À faire</strong> :
+- [ ] Clarifier : SEF comme module métier VS SEF comme connecteur
+- [ ] Documenter intégration PLTF ↔ SEF
+- [ ] Roadmap remplacement SEF connecteur propriétaire</p>
+<hr />
+<h2 id="6-cwe-79-xss-on-hold-sans-plan">6. CWE-79 XSS — On Hold sans plan<a class="headerlink" href="#6-cwe-79-xss-on-hold-sans-plan" title="Permanent link">&para;</a></h2>
+<p><strong>Problème</strong> :
+- Vulnérabilité XSS détectée
+- <strong>Statut : On Hold</strong> (pas de plan de remédiation)
+- Risque sécurité data utilisateurs</p>
+<p><strong>Impact</strong> : Blocage potentiel déploiements clients security-focused</p>
+<p><strong>À faire</strong> :
+- [ ] Severity assessment complète
+- [ ] Plan remédiation : quand ? quelle effort ?
+- [ ] Workarounds courts terme si besoin</p>
+<hr />
+<h2 id="7-donnees-manquantes-dans-specs">7. Données manquantes dans specs<a class="headerlink" href="#7-donnees-manquantes-dans-specs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>État</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend technologie (.NET ?)</td>
+<td>Inconnu</td>
+<td>Dev planning</td>
+</tr>
+<tr>
+<td>Authentification (LDAP vs OAuth)</td>
+<td>Inconnu</td>
+<td>Security</td>
+</tr>
+<tr>
+<td>Backup strategy</td>
+<td>Inconnu</td>
+<td>Ops</td>
+</tr>
+<tr>
+<td>Cloud vs On-prem support</td>
+<td>Inconnu</td>
+<td>Deployment</td>
+</tr>
+<tr>
+<td>RGPD/Conformité</td>
+<td>Inconnu</td>
+<td>Compliance</td>
+</tr>
+<tr>
+<td>Performance targets</td>
+<td>Inconnu</td>
+<td>Architecture</td>
+</tr>
+<tr>
+<td>SLA production</td>
+<td>Inconnu</td>
+<td>Operations</td>
+</tr>
+<tr>
+<td>Budget 2024-2025</td>
+<td>Inconnu</td>
+<td>Roadmap</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="resume-executif">Résumé exécutif<a class="headerlink" href="#resume-executif" title="Permanent link">&para;</a></h2>
+<p><strong>Blocages critiques</strong> :
+1. IWA Water Balance spécification (48% complétion)
+2. WPF→HTML convergence design
+3. CWE-79 XSS plan remédiation</p>
+<p><strong>Recommandations prioritaires</strong> :
+- Sprint dédié IWA spec clarification (1-2 semaines)
+- Architecture review WPF/HTML (décision go/no-go)
+- Security audit CWE-79 + plan remédiation</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../inventory/" class="btn btn-neutral float-right" title="📋 Inventaire">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../gouvernance/changelog/" class="btn btn-neutral" title="Changelog"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../gouvernance/changelog/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../inventory/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

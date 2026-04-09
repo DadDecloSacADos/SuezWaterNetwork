@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="SQLI — Équipe Architecture">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Capteurs & IoT - Aquadvanced WaterNetworks — Documentation 360°</title>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Capteurs & IoT";
+    var mkdocs_page_input_path = "domaines/capteurs-iot.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Aquadvanced WaterNetworks — Documentation 360°</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">🏠 Accueil</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📦 Produit & Métier</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/domaines/">Domaines fonctionnels</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/cas-usage/">Cas d'usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/regles-gestion/">Règles de gestion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/faq-metier/">FAQ Métier</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏗️ Architecture</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/">Vue globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/global/">Architecture globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modules/">Modules techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/apis/">APIs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modele-donnees/">Modèle de données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/integrations/">Intégrations SI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/securite/">Sécurité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/environnements/">Environnements</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">⚙️ Domaines</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../hydraulique/">Hydraulique & Simulateur</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../detection-fuites/">Détection & Corrélation fuites</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Capteurs & IoT</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#types-de-capteurs">Types de capteurs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#architecture-de-collecte">Architecture de collecte</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stockage-series-temporelles">Stockage séries temporelles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#connecteurs-de-donnees">Connecteurs de données</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gestion-qualite-donnees">Gestion qualité données</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#backlog-743-items-88-completion">Backlog (743 items, 88% complétion)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sources">Sources</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../iwa-water-balance/">IWA Water Balance</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evenements-alertes/">Événements & Alertes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../reporting/">Reporting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../connecteurs/">Connecteurs & Données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cartographie/">Cartographie & SIG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🚀 Onboarding</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/01-quickstart-30min/">Vue 360° (30 min)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/02-standard-2h/">Onboarding standard (2h)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/03-deepdive-2days/">Deep dive (2 jours)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Par rôle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/dev/">Développeur</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/po/">PO / BA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/qa/">QA / Test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/run/">Run / Ops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/data/">Data / BI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/architecte/">Architecte</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🗺️ R-Map</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../rmap/">Carte interactive</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📖 Glossaire</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/">Accueil glossaire</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/metier/">Termes métier</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/tech/">Termes techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/acronymes/">Acronymes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🔧 Run & Exploitation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/runbooks/">Runbooks</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/monitoring/">Monitoring</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">✅ Qualité & Delivery</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/tests/">Stratégie tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/adr/">ADR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/standards/">Standards</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏛️ Gouvernance</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/raci/">RACI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/roadmap/">Roadmap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/changelog/">Changelog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../incoherences/">⚠️ Incohérences</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../inventory/">📋 Inventaire</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../open-questions/">🔓 Questions ouvertes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Aquadvanced WaterNetworks — Documentation 360°</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>⚙️ Domaines &raquo;</li>
+        
+      
+    
+    <li>Capteurs & IoT</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="capteurs-iot">Capteurs &amp; IoT<a class="headerlink" href="#capteurs-iot" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Objectif de cette page</p>
+<p>Comprendre la gestion des capteurs IoT, les types de données collectées et l'intégration dans AQWN.</p>
+</div>
+<hr />
+<h2 id="types-de-capteurs">Types de capteurs<a class="headerlink" href="#types-de-capteurs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Capteur</th>
+<th>Mesure</th>
+<th>Localisation</th>
+<th>Fréquence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Débitmètre</strong></td>
+<td>Débit (L/min, L/h)</td>
+<td>Entrée zone, tronçons critiques</td>
+<td>1-5 min</td>
+</tr>
+<tr>
+<td><strong>Manomètre (Pression)</strong></td>
+<td>Pression (bar)</td>
+<td>Nœuds clés réseau</td>
+<td>1-5 min</td>
+</tr>
+<tr>
+<td><strong>Logger acoustique</strong></td>
+<td>Bruit (dB, fréquence)</td>
+<td>Jonctions, vannes</td>
+<td>Continu</td>
+</tr>
+<tr>
+<td><strong>Capteur qualité</strong></td>
+<td>Chlore, turbidité, pH</td>
+<td>Points critiques</td>
+<td>1-15 min</td>
+</tr>
+<tr>
+<td><strong>Niveau réservoir</strong></td>
+<td>Hauteur eau (m)</td>
+<td>Réservoirs</td>
+<td>1-5 min</td>
+</tr>
+<tr>
+<td><strong>Température</strong></td>
+<td>Température eau (°C)</td>
+<td>Points divers</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td><strong>AMR</strong></td>
+<td>Consommation (m³)</td>
+<td>Compteurs clients</td>
+<td>Horaire/jour</td>
+</tr>
+</tbody>
+</table>
+<h2 id="architecture-de-collecte">Architecture de collecte<a class="headerlink" href="#architecture-de-collecte" title="Permanent link">&para;</a></h2>
+<pre><code>┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│ Capteur      │     │ Capteur      │     │ Capteur      │
+│ Pression     │     │ Débit        │     │ Acoustique   │
+└──────┬───────┘     └──────┬───────┘     └──────┬───────┘
+       │                    │                    │
+       └────────────┬───────┴────────┬───────────┘
+                    │                │
+            ┌───────▼────────┐
+            │ Gateway/Logger │  (collecte + buffer)
+            └───────┬────────┘
+                    │ (4G/WiFi/LoRaWAN)
+            ┌───────▼────────────────┐
+            │ Platform AQWN          │
+            │ (ingest + time series) │
+            └───────┬────────────────┘
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+    ┌───▼──┐   ┌───▼──┐   ┌───▼──┐
+    │Détec │   │Hydro │   │Report│
+    │Fuite │   │Sim   │   │  ing │
+    └──────┘   └──────┘   └──────┘
+</code></pre>
+<h2 id="stockage-series-temporelles">Stockage séries temporelles<a class="headerlink" href="#stockage-series-temporelles" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Format</strong> : Time Series Database (InfluxDB, Prometheus, etc.)</li>
+<li><strong>Granularité</strong> : Généralement 1-5 minutes</li>
+<li><strong>Rétention</strong> : 1-5 ans selon contrat</li>
+<li><strong>Accès</strong> : REST API pour requêtes analytiques</li>
+</ul>
+<p><strong>Exemple structure</strong> :</p>
+<pre><code>{
+  &quot;measurement&quot;: &quot;pressure&quot;,
+  &quot;tags&quot;: {
+    &quot;zone&quot;: &quot;DMA_01&quot;,
+    &quot;location&quot;: &quot;node_42&quot;
+  },
+  &quot;fields&quot;: {
+    &quot;value&quot;: 2.45,
+    &quot;validity&quot;: true
+  },
+  &quot;timestamp&quot;: &quot;2024-04-09T14:30:00Z&quot;
+}
+</code></pre>
+<h2 id="connecteurs-de-donnees">Connecteurs de données<a class="headerlink" href="#connecteurs-de-donnees" title="Permanent link">&para;</a></h2>
+<p>Chaque source capteur nécessite un <strong>connecteur</strong> pour :</p>
+<ol>
+<li>Authentifier accès</li>
+<li>Parser le format natif</li>
+<li>Transformer en format AQWN</li>
+<li>Gérer la fréquence d'ingest</li>
+</ol>
+<p><strong>Connecteurs disponibles</strong> :
+- PLTF (remplacement progressif WN-spécifiques)
+- SEF (Sector Event Flow)
+- AMR (lecteurs compteurs)
+- Primayer (loggers acoustiques — 2024)
+- Geoserver (SIG)
+- APIs tierces</p>
+<h2 id="gestion-qualite-donnees">Gestion qualité données<a class="headerlink" href="#gestion-qualite-donnees" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Données manquantes</strong></td>
+<td>Flag "invalide", alerte à l'opérateur</td>
+</tr>
+<tr>
+<td><strong>Valeurs aberrantes</strong></td>
+<td>Détection outliers, flagging</td>
+</tr>
+<tr>
+<td><strong>Décalage temporel</strong></td>
+<td>Synchronisation time servers</td>
+</tr>
+<tr>
+<td><strong>Perte connectivité</strong></td>
+<td>Buffer local, retry</td>
+</tr>
+<tr>
+<td><strong>Capteur défaillant</strong></td>
+<td>Historique panne, remplacement recommandé</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backlog-743-items-88-completion">Backlog (743 items, 88% complétion)<a class="headerlink" href="#backlog-743-items-88-completion" title="Permanent link">&para;</a></h2>
+<div class="domain-stats">
+
+| Composant | Items | État |
+|-----------|-------|------|
+| Intégration capteurs | ~250 | Production |
+| Connecteurs PLTF | ~280 | Évolution |
+| Qualité données | ~150 | Production |
+| Time series POC | ~63 | POC |
+
+</div>
+
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Backlog Azure DevOps (743 items)</li>
+<li><code>01-Requirements/Sujets RoadMap 2024.docx</code></li>
+</ul>
+<hr />
+<p><strong>Voir aussi</strong> : <a href="../hydraulique/">Hydraulique</a> | <a href="../detection-fuites/">Détection de fuites</a> | <a href="../connecteurs/">Connecteurs</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../iwa-water-balance/" class="btn btn-neutral float-right" title="IWA Water Balance">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../detection-fuites/" class="btn btn-neutral" title="Détection & Corrélation fuites"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../detection-fuites/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../iwa-water-balance/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

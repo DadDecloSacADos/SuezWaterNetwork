@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="SQLI — Équipe Architecture">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Détection & Corrélation fuites - Aquadvanced WaterNetworks — Documentation 360°</title>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../custom.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "D\u00e9tection & Corr\u00e9lation fuites";
+    var mkdocs_page_input_path = "domaines/detection-fuites.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Aquadvanced WaterNetworks — Documentation 360°</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">🏠 Accueil</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📦 Produit & Métier</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/domaines/">Domaines fonctionnels</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/cas-usage/">Cas d'usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/regles-gestion/">Règles de gestion</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../produit/faq-metier/">FAQ Métier</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏗️ Architecture</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/">Vue globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/global/">Architecture globale</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modules/">Modules techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/apis/">APIs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/modele-donnees/">Modèle de données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/integrations/">Intégrations SI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/securite/">Sécurité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../architecture/environnements/">Environnements</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">⚙️ Domaines</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../hydraulique/">Hydraulique & Simulateur</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Détection & Corrélation fuites</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#contexte-metier">Contexte métier</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#flux-de-detection-vue-generale">Flux de détection : Vue générale</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-base-de-donnees-fuites">1. Base de données fuites</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#entites-attributs">Entités &amp; Attributs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gestion-des-fuites">Gestion des fuites</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-detection-via-correlation-de-donnees-data-correlator">2. Détection via corrélation de données (Data Correlator)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#quest-ce-que-le-data-correlator">Qu'est-ce que le Data Correlator ?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#input-du-correlator">Input du Correlator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#output">Output</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-localisation-de-fuite-lli">3. Localisation de fuite LLI</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lli-localisation-de-fuite-par-indice">LLI = Localisation de Fuite par Indice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#principe">Principe</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration_1">Configuration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-fuites-apres-compteurs">4. Fuites après compteurs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#cas-particulier">Cas particulier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#domaine-dedie">Domaine dédié</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#integrations">Intégrations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#backlog-714-items-86-completion">Backlog (714 items, 86% complétion)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#questions-ouvertes">Questions ouvertes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sources">Sources</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../capteurs-iot/">Capteurs & IoT</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../iwa-water-balance/">IWA Water Balance</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evenements-alertes/">Événements & Alertes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../reporting/">Reporting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../connecteurs/">Connecteurs & Données</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cartographie/">Cartographie & SIG</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🚀 Onboarding</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/01-quickstart-30min/">Vue 360° (30 min)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/02-standard-2h/">Onboarding standard (2h)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../onboarding/03-deepdive-2days/">Deep dive (2 jours)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Par rôle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/dev/">Développeur</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/po/">PO / BA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/qa/">QA / Test</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/run/">Run / Ops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/data/">Data / BI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../onboarding/by-role/architecte/">Architecte</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🗺️ R-Map</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../rmap/">Carte interactive</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">📖 Glossaire</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/">Accueil glossaire</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/metier/">Termes métier</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/tech/">Termes techniques</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../glossaire/acronymes/">Acronymes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🔧 Run & Exploitation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/runbooks/">Runbooks</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../run/monitoring/">Monitoring</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">✅ Qualité & Delivery</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/tests/">Stratégie tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/adr/">ADR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../qualite/standards/">Standards</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">🏛️ Gouvernance</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/">Vue d'ensemble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/raci/">RACI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/roadmap/">Roadmap</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gouvernance/changelog/">Changelog</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../incoherences/">⚠️ Incohérences</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../inventory/">📋 Inventaire</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../open-questions/">🔓 Questions ouvertes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Aquadvanced WaterNetworks — Documentation 360°</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>⚙️ Domaines &raquo;</li>
+        
+      
+    
+    <li>Détection & Corrélation fuites</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="detection-correlation-de-fuites">Détection &amp; Corrélation de fuites<a class="headerlink" href="#detection-correlation-de-fuites" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Objectif de cette page</p>
+<p>Comprendre comment AQWN détecte, localise et gère les fuites d'eau dans le réseau.</p>
+</div>
+<p><strong>Prérequis</strong> : <a href="../hydraulique/">Hydraulique</a> | <a href="../../glossaire/metier/">Glossaire</a></p>
+<hr />
+<h2 id="contexte-metier">Contexte métier<a class="headerlink" href="#contexte-metier" title="Permanent link">&para;</a></h2>
+<p>La <strong>détection de fuites</strong> est le cas d'usage principal d'AQWN. Un réseau d'eau perd typiquement 15-30% de son volume. Les fuites :</p>
+<ul>
+<li><strong>Coûtent cher</strong> : Eau perdue = perte de revenu + surcoûts énergie</li>
+<li><strong>Sont difficiles à détecter</strong> : Fuites invisibles sous terre jusqu'à rupture catastrophique</li>
+<li><strong>Doivent être localisées rapidement</strong> : Pour réduire le délai intervention</li>
+</ul>
+<h2 id="flux-de-detection-vue-generale">Flux de détection : Vue générale<a class="headerlink" href="#flux-de-detection-vue-generale" title="Permanent link">&para;</a></h2>
+<pre><code>┌─────────────────────────────────────┐
+│ 1. Acquisition données              │
+│    - Capteurs pression              │
+│    - Débitmètres                    │
+│    - Loggers acoustiques             │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│ 2. Analyse hydraulique               │
+│    - Simulation EPANET               │
+│    - Comparaison mesures vs calculs  │
+│    - Identification anomalies        │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│ 3. Corrélation données               │
+│    - Data Correlator : détecte      │
+│      événements simultanés           │
+│    - Identifie cause-effet          │
+│    - Réduit faux positifs            │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│ 4. Localisation LLI                  │
+│    - Triangulation acoustic loggers  │
+│    - Pinpointe zone fuite            │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│ 5. Gestion &amp; Suivi                   │
+│    - Base de données fuites          │
+│    - Historique interventions        │
+│    - Tendances de détérioration      │
+└─────────────────────────────────────┘
+</code></pre>
+<h2 id="1-base-de-donnees-fuites">1. Base de données fuites<a class="headerlink" href="#1-base-de-donnees-fuites" title="Permanent link">&para;</a></h2>
+<h3 id="entites-attributs">Entités &amp; Attributs<a class="headerlink" href="#entites-attributs" title="Permanent link">&para;</a></h3>
+<p>Chaque fuite enregistre :</p>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Type</th>
+<th>Obligatoire</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td>Texte</td>
+<td>✅</td>
+<td>Identifiant unique</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Select</td>
+<td>✅</td>
+<td>Main / Branchement client</td>
+</tr>
+<tr>
+<td><strong>Localisation</strong></td>
+<td>X/Y</td>
+<td>⚠️</td>
+<td>Soit X/Y soit adresse</td>
+</tr>
+<tr>
+<td><strong>Adresse</strong></td>
+<td>Texte</td>
+<td>⚠️</td>
+<td>Géocodée → X/Y si absent</td>
+</tr>
+<tr>
+<td><strong>DMA/Zone</strong></td>
+<td>Référence</td>
+<td>✅</td>
+<td>Zone hydraulique concernée</td>
+</tr>
+<tr>
+<td><strong>Date apparition</strong></td>
+<td>Date</td>
+<td>✅</td>
+<td>Quand suspect commence</td>
+</tr>
+<tr>
+<td><strong>Commentaire apparition</strong></td>
+<td>Texte</td>
+<td>✅</td>
+<td>Comment détecté ?</td>
+</tr>
+<tr>
+<td><strong>Date détection</strong></td>
+<td>Date</td>
+<td>✅</td>
+<td>Quand confirmation</td>
+</tr>
+<tr>
+<td><strong>Commentaire détection</strong></td>
+<td>Texte</td>
+<td>✅</td>
+<td>Preuve détection</td>
+</tr>
+<tr>
+<td><strong>Volume estimé</strong></td>
+<td>Nombre</td>
+<td>⚠️</td>
+<td>Débit ou débit journalier</td>
+</tr>
+<tr>
+<td><strong>Date réparation</strong></td>
+<td>Date</td>
+<td>⚠️</td>
+<td>Quand réparé</td>
+</tr>
+<tr>
+<td><strong>Date fermeture</strong></td>
+<td>Date</td>
+<td>⚠️</td>
+<td>Quand dossier clôt</td>
+</tr>
+<tr>
+<td><strong>Label</strong></td>
+<td>Select</td>
+<td>✅</td>
+<td>Fuite confirmée / Faux positif</td>
+</tr>
+<tr>
+<td><strong>Caractérisation</strong></td>
+<td>Texte</td>
+<td>⚠️</td>
+<td>Détails type (rupture ? joint ?)</td>
+</tr>
+<tr>
+<td><strong>Intervention liée</strong></td>
+<td>Référence</td>
+<td>⚠️</td>
+<td>Lien vers CIS/tâche d'intervention</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gestion-des-fuites">Gestion des fuites<a class="headerlink" href="#gestion-des-fuites" title="Permanent link">&para;</a></h3>
+<p><strong>Création</strong> :
+- Automatique via détection (algorithme)
+- Manuelle via interface (opérateur signale)
+- Via événement SEF (Sector Event Flow)</p>
+<p><strong>Modification</strong> :
+- Changement statut (apparition → détection → réparation)
+- Affinement localisation
+- Mise à jour volume estimé</p>
+<p><strong>Fermeture</strong> :
+- Après intervention
+- Validation opérateur</p>
+<h2 id="2-detection-via-correlation-de-donnees-data-correlator">2. Détection via corrélation de données (Data Correlator)<a class="headerlink" href="#2-detection-via-correlation-de-donnees-data-correlator" title="Permanent link">&para;</a></h2>
+<h3 id="quest-ce-que-le-data-correlator">Qu'est-ce que le Data Correlator ?<a class="headerlink" href="#quest-ce-que-le-data-correlator" title="Permanent link">&para;</a></h3>
+<p>Le <strong>Data Correlator</strong> est un module d'<strong>analyse statistique</strong> qui :</p>
+<ul>
+<li>Détecte les <strong>changements abrupts</strong> (spikes) dans les données</li>
+<li>Corrèle les changements entre <strong>plusieurs capteurs</strong></li>
+<li>Identifie la <strong>cause probable</strong> d'un événement</li>
+</ul>
+<p><strong>Exemple</strong> :</p>
+<pre><code>Pression passe de 2.5 bar à 1.8 bar à 14:30
+  + Débit à la sortie zone passe de 50 L/s à 65 L/s
+  + Logger acoustique détecte bruit à 14:31
+  → Corrélation = Fuite probable dans la zone
+</code></pre>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Description</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Delay (fenêtre)</strong></td>
+<td>Durée recherche correlation</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td><strong>ThresholdFactor</strong></td>
+<td>Amplitude min de variation</td>
+<td>Dataset-dépendant</td>
+</tr>
+<tr>
+<td><strong>Type corrélation</strong></td>
+<td>Libre ou conditionnelle</td>
+<td>Libre</td>
+</tr>
+<tr>
+<td><strong>Allocation area</strong></td>
+<td>Zone/DMA à analyser</td>
+<td>Global</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-du-correlator">Input du Correlator<a class="headerlink" href="#input-du-correlator" title="Permanent link">&para;</a></h3>
+<p><strong>Données passives</strong> :
+- Événement (ID, dates début/fin, zone)
+- Données capteurs (CSV : temps, valeur, validité)
+- Paramètres de recherche</p>
+<p><strong>Données actives</strong> (API) :
+- Contrat + plage temporelle
+- Récupération auto des séries disponibles</p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Données corrélées</strong> : Liste des capteurs affectés + timing</li>
+<li><strong>Scores corrélation</strong> : Force du lien (0-100%)</li>
+<li><strong>Diagnostic</strong> : Type probable de fuite</li>
+<li><strong>Visualisation</strong> : Graphiques des courbes superposées</li>
+</ul>
+<h2 id="3-localisation-de-fuite-lli">3. Localisation de fuite LLI<a class="headerlink" href="#3-localisation-de-fuite-lli" title="Permanent link">&para;</a></h2>
+<h3 id="lli-localisation-de-fuite-par-indice">LLI = Localisation de Fuite par Indice<a class="headerlink" href="#lli-localisation-de-fuite-par-indice" title="Permanent link">&para;</a></h3>
+<p>La <strong>LLI</strong> utilise des <strong>loggers acoustiques</strong> (capteurs de bruit) pour <strong>triangulariser la position</strong> d'une fuite.</p>
+<h3 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h3>
+<pre><code>Logger 1 (Acoustic)        Logger 2
+    │ détecte bruit           │ détecte bruit
+    │ t=0ms                   │ t=+3ms
+    │                         │
+    └────────────────────────┘
+         Δt = 3ms
+
+    Δ distance = Δt × c_sound ≈ 1 mètre
+    → Fuite à ~1m de Logger 1
+</code></pre>
+<h3 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Placementer des loggers sur le réseau (jonctions stratégiques)</li>
+<li>Calibration fréquence + seuils</li>
+<li>Synchronisation temps entre loggers</li>
+<li>Validation géolocalisation</li>
+</ul>
+<h2 id="4-fuites-apres-compteurs">4. Fuites après compteurs<a class="headerlink" href="#4-fuites-apres-compteurs" title="Permanent link">&para;</a></h2>
+<h3 id="cas-particulier">Cas particulier<a class="headerlink" href="#cas-particulier" title="Permanent link">&para;</a></h3>
+<p>Les fuites <strong>en aval du compteur client</strong> sont du ressort du client, mais AQWN peut :</p>
+<ul>
+<li>Détecter anomalies (pression anormalement basse chez client)</li>
+<li>Alerter le service client</li>
+<li>Tracer historique des événements</li>
+</ul>
+<h3 id="domaine-dedie">Domaine dédié<a class="headerlink" href="#domaine-dedie" title="Permanent link">&para;</a></h3>
+<p>Voir <a href="../configuration/">Fuites après compteurs</a> pour détails.</p>
+<h2 id="integrations">Intégrations<a class="headerlink" href="#integrations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Interaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hydraulique</strong></td>
+<td>Simulation détecte divergence mesure vs calcul</td>
+</tr>
+<tr>
+<td><strong>Capteurs</strong></td>
+<td>Pression, débit, loggers acoustiques</td>
+</tr>
+<tr>
+<td><strong>Événements/SEF</strong></td>
+<td>Génération automatique d'événements pour fuites</td>
+</tr>
+<tr>
+<td><strong>Reporting</strong></td>
+<td>KPIs fuite : nombre, localisation, coûts</td>
+</tr>
+<tr>
+<td><strong>IWA Water Balance</strong></td>
+<td>Estimation pertes réelles = fuites détectées</td>
+</tr>
+<tr>
+<td><strong>Cartographie</strong></td>
+<td>Affichage icônes fuites sur map</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backlog-714-items-86-completion">Backlog (714 items, 86% complétion)<a class="headerlink" href="#backlog-714-items-86-completion" title="Permanent link">&para;</a></h2>
+<div class="domain-stats">
+
+| Composant | Items | État |
+|-----------|-------|------|
+| Base données fuites | ~180 | Production |
+| Data Correlator | ~200 | Production |
+| LLI Acoustic | ~150 | Production |
+| Reportage & KPIs | ~184 | Évolution |
+
+</div>
+
+<h2 id="questions-ouvertes">Questions ouvertes<a class="headerlink" href="#questions-ouvertes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Comment valider automatiquement qu'une "fuite" est bien réelle (vs faux positif) ?</li>
+<li>Support pour d'autres technologies de localisation (géophone, etc.) ?</li>
+<li>Prédiction fuites futures (machine learning) ?</li>
+<li>Intégration avec GIS clients pour "déjà connu" ?</li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>01-Requirements/Leak detection/Requirement - Leak Data Base.docx</code></li>
+<li><code>01-Requirements/Data correlator/Requirement Data Correlator.docx</code></li>
+<li><code>Backlog Azure DevOps</code> (714 items)</li>
+</ul>
+<hr />
+<p><strong>Voir aussi</strong> : <a href="../capteurs-iot/">Capteurs &amp; IoT</a> | <a href="../evenements-alertes/">Événements &amp; Alertes</a> | <a href="../hydraulique/">Hydraulique</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../capteurs-iot/" class="btn btn-neutral float-right" title="Capteurs & IoT">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../hydraulique/" class="btn btn-neutral" title="Hydraulique & Simulateur"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../hydraulique/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../capteurs-iot/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
